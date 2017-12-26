@@ -1,0 +1,29 @@
+exports.run = (client, Functions, Requires, guild) => {
+  try {
+    client.logger.evt(`Joining a new guild: ${guild.name} (${guild.id})`);
+
+    if(client.isBanned(guild)) {
+      client.logger.warn(`Guild is banned!`);
+      return guild.owner.user.send(`Sorry, but your server has been banned from using Intellibot...`).then((m) => {
+        guild.leave();
+      });
+    }
+
+    // Just to be sure, lets check that it doesn't exist
+    if(client.settings.has(guild.id)) return;
+
+    client.addGuild(guild);
+
+    // Announce on events channel
+    var embed = new client.Discord.RichEmbed()
+    .setTitle("Joined Guild")
+    .setColor([23, 209, 72])
+    .setDescription(`Joined ${guild.name}`)
+    .addField("Owner", `${guild.owner.user.username} (${guild.owner.user.id})`)
+    .addField("Members", `${guild.memberCount}`);
+    client.channels.get(client.constants.events).send({embed});
+
+  } catch (err) {
+    client.logger.error(`${err.stack == undefined ? err:err.stack}`);
+  }
+}

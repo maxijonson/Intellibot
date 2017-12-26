@@ -1,0 +1,8 @@
+***Rules***
+It's very important to have rules in a server in order to not fall into anarchy!
+
+***Syntax***
+__*Show Rules*__
+```${prefix}rules```
+__*Edit Rules [Admin]*__
+```${prefix}rules <newRules>```

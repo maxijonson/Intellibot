@@ -1,0 +1,21 @@
+***Sudoku***
+My creator's final project in his Data Structures course was to make a C++ program that would solve any sudoku in less than half a second, using recursive function calls and backtracking. So, when he finished it, he translated it to JavaScript and I can now solve sudokus! Keep in mind it may not be perfect, and wasn't tested much as it was translated from C++. However, the few tests I had were made using Evil level puzzles.
+
+***Format***
+You have to give me the sudoku in a .txt file. All blank spaces must be replaced with 0 (zero). Don't worry if the format is wrong, I'll tell you. I can even tell you if the puzzle is unsolvable, although in rare cases it might just be because I failed.
+
+***Example***
+Here is what your .txt file should look like:
+013000000
+000184030
+806300020
+300010007
+100590480
+087030100
+070000059
+025000000
+000009010
+
+***Syntax***
+__*Solve Sudoku*__
+```${prefix}sudoku <file.txt>```

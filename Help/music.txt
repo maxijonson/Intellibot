@@ -1,0 +1,60 @@
+***Music***
+BUCKLE UP! THIS ONE IS A BIG ONE!
+This command might be slower since it relies on APIs which can get time to fetch info, but my owner tried to optimize it to his best knowledge.
+
+***Fragile Command***
+This is considered as my most fragile command as it relies on more than 1 API to make the magic happen! This means a lot of asynchronous code and other stuff. There is also an error that would sometimes occur preventing me from streaming the video. This error didn't occur enough times for my creator to debug it, so if I just randomly skip a song, it's because I couldn't stream it!
+
+***Quality Warn***
+Don't expect me to play some high quality audio at all times! There are many factors that can affect my audio quality, such as how many guilds are playing music, the connection between my host and the Discord servers, etc.
+
+***Discord Bug***
+There is a currently known issue which causes the bot to stop playing music in a specific case. Let's say you're in two servers (A and B). There's another server C which you're not in. If you play a music in both A and B, then stop on B, I will stop speaking in A but not in C (because you are a member of B). This case may not be perfect but it's as far as analyzed my creator went to. There is a band-aid: ${prefix}music pause then ${prefix}music resume will make me continue.
+Listen, it's not very clear, so I tried my best to explain what took my creator 2 hours to come to this conclusion. He even created a new account "Intellibot's Idiot Brother" just to test cases.
+
+***Discord Bug 2***
+This bug is pretty weird. For some reasons, the script will sometimes just "skip" the lines of code after joining the channel without throwing any errors. So, if I do join the channel and don't start streaming after 5 seconds, just ${prefix}music stop and restart.
+
+***Disconnect***
+I do round checks of all the voice channels I'm in at a certain interval. If I find myself lonely during that check, I will disconnect from the voice channel.
+
+***Download***
+In production, even when first advertising the bot, the subcommand 'download' was shown to be available. Unfortunately, for legal reasons, he decided it was better not to mess with copyrights and remove it. However, some remains might still be around. If you happen to find one, it would be kind to report it on Twitter @Intellibot_Bot :)
+
+***Syntax***
+__*Play*__
+```${prefix}music play <[url/videoID] [save name] [video name (spaces supported)]>```
+__*Show Queue*__
+```${prefix}music queue```
+__*Clear Queue*__
+```${prefix}music clear```
+__*Controls*__
+```${prefix}music <[skip] [pause] [resume] [stop]>```
+__*Save Link*__
+```${prefix}music save <[url/videoID] [current]> <save name (single word)>```
+__*Show Saves*__
+```${prefix}music saves```
+__*Unsave Link*__
+```${prefix}music unsave <save name>```
+__*Adjust Volume*__
+```${prefix}music volume [amount (between 0 and 2.5)]```
+__*Create Playlist*__
+```${prefix}music playlist <name> create```
+__*Delete Playlist*__
+```${prefix}music playlist <playlist name> delete```
+__*Add Link to Playlist*__
+```${prefix}music playlist <playlist name> add <[url/videoID] [current]> <save name>```
+__*Remove Link from Playlist*__
+```${prefix}music playlist <playlist name> remove <save name>```
+__*Add Playlist to Queue*__
+```${prefix}music playlist <playlist name> play```
+__*Show Playlist Contents*__
+```${prefix}music playlist <playlist name> show```
+__*Shuffle Playlist*__
+```${prefix}music playlist <playlist name> shuffle```
+__*Show Playlists*__
+```${prefix}music playlists```
+__*Search*__
+```${prefix}music search [amount] <query (supports spaces)>```
+__*Re-add Current Link to Queue*__
+```${prefix}music replay```

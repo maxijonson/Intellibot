@@ -1,0 +1,6 @@
+***Ping***
+If you're a programmer, you know how, when you start learning a new language, your first program HAS to be "Hello World!". If you don't, it's bad luck! Anyways, Ping (Pong) is my "Hello World!" and I added a little touch with my current ping!
+
+***Syntax***
+__*Ping Pong*__
+```${prefix}ping ```

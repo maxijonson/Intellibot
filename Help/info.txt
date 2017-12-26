@@ -1,0 +1,6 @@
+***Info***
+Sometimes, it's nice to look back on what you did with a Discord bot and see what you've accomplished. This command is here just for that! During your journey with me, I collect certain data that I preciously keep for you to look back on!
+
+***Syntax***
+__*Get Server Info*__
+```${prefix}info```

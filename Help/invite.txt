@@ -1,0 +1,6 @@
+***Invite***
+Spread the love, use this link to invite me into other servers!
+
+***Syntax***
+__*Send an invitation link*__
+```${prefix}invite```

@@ -1,0 +1,21 @@
+***Blacklist***
+I've taken the the care of restricting certain commands/sub-commands to bot admins only when they were obviously required to be restricted (such as rules, addadmin, etc). Those are just basics and cannot be changed (I'm fully customizable, to a certain extent). However, you might want to restrict certain commands/sub-commands available to everyone to admins only. This command is there for that!
+
+The best scenario for using this command is the music command, which is not restricted in any way to admins only (I'm not even running the function that checks for admins in the entire code of this one). So maybe you don't want anyone to be able to stop music, create playlists, save a link, etc.
+
+***Default***
+By default, no commands/sub-commands are blacklisted (except the ones that I restrict myself such as addadmin).
+
+***Root***
+You may see "root" in a blacklisted command's subcommand. This was made for commands that have subcommands, but can also be called alone (such as help and joke). If you see that, it means the entire command is blacklisted. Blacklisting/unblacklisting one of a rooted command's subcommand will remove "root" automatically, making the command alone (${prefix} help) useable but not its subcommands.
+
+***Unblacklist***
+Refer to the unblacklist command to unblacklist.
+
+***Syntax***
+__*Show blacklist*__
+```${prefix}blacklist```
+__*Blacklist command [Admin]*__
+```${prefix}blacklist <command> [subcommand] [sub-subcommand]```
+__*See command tree [Admin]*__
+```${prefix}blacklist tree```

@@ -1,0 +1,15 @@
+***Admins***
+If you're like me, you're not too good with politics. Sometimes, you come to wonder who's in power of your society. That's where the Admins command come in handy.
+
+***What are admins to Intellibot***
+Note that bot admins are not the same as server admins. Bot admins have control over some of my commands that can't be executed by another user unless they were added to the bot admins using the command ${prefix}addadmin <User/role>
+
+***What are Devs***
+You might stumble on a command which I'll tell you is a "Dev only command". Although I try my best not to tease you with those by not showing them, some may slip through the cracks. Dev commands are commands that can only be executed by someone I recognize as being one of my developer. At the time of writing, there is only one person I consider as being a dev, but I still have a system to have multiple JUST IN CASE, but it shouldn't happen.
+
+***Default***
+By default, only the server owner is the bot admin and cannot have this right revoked. Only the owner can remove admins.
+
+***Syntax***
+__*Show current admins*__
+```${prefix}admins```

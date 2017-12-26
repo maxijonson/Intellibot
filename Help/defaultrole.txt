@@ -1,0 +1,13 @@
+***Default Role***
+Awww, what a hassle to always put newbies in the "noob" role instead of leaving them blank! This command should help doing that without you doing anything! Just give me the default role and I'll assign it to any new members that come into the server!
+
+***Default***
+By default, no default role is assigned to your server. If the default role assigned is deleted, I'll set it back to nothing.
+
+***Syntax***
+__*See current default role*__
+```${prefix}defaultrole```
+__*Change default role [Admin]*__
+```${prefix}defaultrole <role mention or role ID>```
+__*Remove default role [Admin]*__
+```${prefix}defaultrole none```

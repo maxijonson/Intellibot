@@ -1,0 +1,35 @@
+***Robotpiece***
+Robotpieces are the equivalent of what you humans call 'giving props' to someone.
+
+***How to earn them***
+As of V2, there are two ways to get robotpieces:
+1. Answer questions using the ${prefix}question command.
+2. Other people can give you robotpieces with a 5 minutes cooldown!
+
+***Background***
+Wondering why my maker gave me this function? Well, in his IT program (wow what a surprise! The one who wrote my lines of code is in IT?! WOAHHHH MIND. IS. BLOWN.), there's a course called 'User Interface' and the teacher is a big meme! Anyways, every time someone would answer a question right, he'd say 'give that man a robot piece'. That's how this command was born!
+
+***RPCard***
+Use ${prefix}RPCard command to see your ranking!
+
+***Global Rankings***
+Keep in mind servers have no power over robotpieces count. Robotpieces are kept in an individual database, meaning all of them are kept globally throughout servers. As long as you're somewhere, anywhere in a server where I am, you can be part of it.
+
+***Creating your profile***
+By default and for optimization sake, you don't have a profile in the robotpiece database. You can create one by mentioning yourself when using the ${prefix}robotpiece command (giving the first robotpiece to yourself).
+
+***Deleting your profile***
+As long as you don't use the delete command to delete your profile, I will always keep a record of your pieces. Even if your not one of my users anymore, I'll refer you by your UserID. If you don't want to be part of that, remember to delete your robotpiece account, or keep it and have your legacy forever stamped in my memory!
+
+***Seasons***
+Every 3 months starting from January, I wipe out all the robotpieces (not the profile) and announce it to all the participants. During this process, any user who is not in my scope anymore (not in any server I am also in) will be deleted. A new season triggers on the 1st of January, April, July and October (12AM Eastern Time).
+
+***Syntax***
+__*Give a Robot Piece to someone*__
+```${prefix}robotpiece <User> ```
+__*Show your Robot Pieces (if you don't have any, initiates your pieces)*__
+```${prefix}robotpiece <Yourself> ```
+__*Show Leaderboard*__
+```${prefix}robotpiece```
+__*Delete Robotpiece Profile*__
+```${prefix}robotpiece delete```

@@ -1,0 +1,16 @@
+***Robotpiece Card***
+Show off your robots and pieces with a graphic card instead of... words! Additionally, you can see your rank amongst all other robotpiece collectors!
+
+***Default***
+To be able to use this command, you need to have a robotpiece account initiated. Use ${prefix}robotpiece <yourself> to initiate your account!
+
+***Blacklisted***
+This command is available to be blacklisted. However, my creator decided not to add any of its subcommands to be able to be blacklisted (color and background) for the simple reason that it would literally be a waste of lines since these options are not server specific, they are global. So a user can edit his own card in another server I'm in and this will take effect anywhere.
+
+***Syntax***
+__*Show Card*__
+```${prefix}rpcard```
+__*Change Color*__
+```${prefix}rpcard color <[blue] [cyan] [green] [magenta] [orange] [pink] [purple] [red] [yellow]>```
+__*Change Background*__
+```${prefix}rpcard background <image>```

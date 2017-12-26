@@ -1,0 +1,18 @@
+***Joke***
+Everyone needs a little laugh once in a while! That's why I've been given the gift of humor!
+
+***Warning***
+I come with a set of inappropriate jokes, such as dirty jokes and dark, very dark humor. Don't worry, unless you explicitly authorize me to tell you one of those, I won't tell you those. However, if you do authorize me, you have been warned, I am not responsible if you are offended. I just took them off Google, after all.
+
+***Joke Number***
+Just ignore these, they're mostly for my owner to track which joke it is in case he wants to delete it!
+
+***Syntax***
+__*Tell random filtered joke*__
+```${prefix}joke```
+__*Tell random joke (unfiltered)*__
+```${prefix}joke nofilter```
+__*Tell joke from a category*__
+```${prefix}joke <category>```
+__*View categories*__
+```${prefix}joke categories```

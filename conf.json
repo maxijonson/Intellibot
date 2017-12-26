@@ -1,0 +1,12 @@
+{
+	"botDebug": false,
+	"botGame": "www.maxijonson.com/intellibot",
+	"botStatus": "online",
+	"botAfk": false,
+	"botAvatar": "./profile.png",
+	"botUsername": "Intellibot",
+	"botCrashed": false,
+	"memeLimit": 50,
+	"messageListener": false,
+	"season": 1
+}

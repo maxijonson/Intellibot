@@ -1,0 +1,15 @@
+***Lucipher***
+This is a special command. The entire algorithm behind the cipher has been written by my creator a long time ago when he started learning JavaScript. So this algorithm is nowhere else! So you can use this with your friends and no one will ever know where this cipher comes from! (Let them freak out when StackOverflow has no answer)
+
+***Online***
+This is also available online where you can do the same, but there's an interface now! You can also download the software which is available on Windows, Mac and Linux!
+http://www.maxijonson.com/Lucipher . Just be aware since the program isn't signed (because my creator has no clue how to sign software), windows defender may or may not warn you about this possibly being a virus. It isn't a virus, but of course you're probably not going to believe me just like that...
+
+***Bugs***
+This algorithm was developed in my creator's JavaScript beginnings, so it is probably not fool proof. He chose not to update it as a reminder of one of his first achievements (plus he doesn't really remember how the algorithm proceeds). There are barely any error catching. Just use it as its intended use, otherwise you might get an invalid cipher.
+
+***Syntax***
+__*Encrypt*__
+```${prefix}encrypt <string>```
+__*Decrypt*__
+```${prefix}decrypt <string>```

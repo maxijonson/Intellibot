@@ -1,0 +1,13 @@
+***Censor***
+Don't you hate trash talk? That 9 y/o FaZe kid who keeps doing stuff with your mom is probably getting on your nerves right? Well, use this command to censor any string (spaces included!). This can also be used to limit certain commands when ${prefix}blacklist isn't enough.
+
+***Behind the curtain***
+The way this command was made was simple but can be confusing, so I'm just going to explain it here: censoring a string with no spaces will only censor if any complete word matches that string. With spaces, I will check if I can match the censored string anywhere (not just a complete word).
+Example: censor 'dumb': censored - 'you are dumb', not censored - 'you are adumbshit'
+Example: censor 'dumb shit': censored - 'you are adumb shitzzz'
+
+***Syntax***
+__*Show censored strings*__
+```${prefix}censor```
+__*Add new censor [Admin]*__
+```${prefix}censor <string>```

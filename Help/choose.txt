@@ -1,0 +1,6 @@
+***Choose***
+Everyone needs help finding a place to eat once in a while, especially when you ask your girlfriend/wife/wtvSheIsForYou where SHE wants to eat. Then she tells you to choose, which you do, and she's like: 'hmmm not sure about this place...'. Instead of arguing about it, just give me the choices and I'll make the final choice!
+
+***Syntax***
+__*Choose between options*__
+```${prefix}choose <option1> <option2> [more options...]```

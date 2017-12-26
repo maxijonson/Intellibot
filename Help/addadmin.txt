@@ -1,0 +1,11 @@
+***Add Admin***
+For a bot like me, I have my own admins (referenced as 'bot admins' or simply 'admins' in some functions). These are different from the server's admins, as bot admins are the ones who are allowed specific commands for me to run (such as ${prefix}prefix). Use this command to add one of those.
+
+***V2***
+During most part of the development, admins could only be users. About 3 weeks before release, the whole structure of admins was changed to accept roles as well!
+
+***Syntax***
+__*Show current admins*__
+```${prefix}addadmin ```
+__*Add an admin [Admin]*__
+```${prefix}addadmin <User or Role> ```

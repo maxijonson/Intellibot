@@ -1,0 +1,6 @@
+***Kick***
+Some people can be very annoying sometimes. If it happens to be on the day you find out McDonald's doesn't have Szechuan sauce anymore, you'll be very pissed if this person annoys you. Use this to send a clear message that today is not the time.
+
+***Syntax***
+__*Kick a member*__
+```${prefix}kick <mention> <reason>```

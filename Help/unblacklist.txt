@@ -1,0 +1,9 @@
+***Unblacklist***
+Now, before you ask, I know, 'unblacklist' is not an existing word. But I'm sure you still understand what it means! The human brain is something pretty special after all. I didn't want to use 'whitelist' because, well there is no white list!
+It essentially works the same way as blacklist, only it does the reverse effect!
+
+***Syntax***
+__*Unblacklist a blacklisted command*__
+```${prefix}unblacklist <command> [subcommand] [sub-subcommand]```
+__*Unblacklist all commands*__
+```${prefix}unblacklist all```

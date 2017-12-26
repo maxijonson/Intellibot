@@ -1,0 +1,19 @@
+***Welcome***
+It's always nice to have a nice greeting when we join a server! Change the welcome message and I'll take care of delivering the message when the new user joins!
+
+***Default***
+By default, there is no welcome message
+
+***Wildcards***
+Use these to mix things up:
+**%u** - Username of the member
+**%s** - Server name
+**%m** - Mention of the member (doesn't work in code blocks, will appear as a weird long ID. ewww.)
+
+***Syntax***
+__*Show current welcome message*__
+```${prefix}welcome ```
+__*Change welcome message [Admin]*__
+```${prefix}welcome <Message> ```
+__*Remove welcome message [Admin]*__
+```${prefix}welcome %reset% ```

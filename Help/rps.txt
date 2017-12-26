@@ -1,0 +1,6 @@
+***Rock Paper Scissors***
+The classic game everyone plays to decide on who's getting the first shot at talking to the girl/boy on the other side of the bar!
+
+***Syntax***
+__*Start an RPS game*__
+```${prefix}rps```

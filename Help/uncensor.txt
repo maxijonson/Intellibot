@@ -1,0 +1,8 @@
+***Uncensor***
+Maybe the maturity level of the server has upgraded! Some words/strings now become tolerable!
+
+***Index***
+Get the index of a censored string with ${prefix}censor
+
+***Syntax***
+```${prefix}uncensor <index>```

@@ -1,0 +1,6 @@
+***Google***
+Search the entire web with Intellibot! The version you are currently seeing is the third one! The first one relied on the Google API which was limited to 100 requests per day.... boooo! The second one could only do one search at a time. Now, the latest one shows 5 results and also gives you a link to your search in case you want to expand!
+
+***Syntax***
+__*Search*__
+```${prefix}google <query (spaces allowed)>```

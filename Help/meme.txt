@@ -1,0 +1,29 @@
+***Meme (V2)***
+One does not simply create a Discord bot without meme functionality! This command will let you upload your blank meme images and then use them to create captioned memes! None of that "Imgflip/memegenerator/AnyOtherMemeWebsite API call" which many other bots use! Nononono, I'm here to be better than the other bots, not copy them!
+
+Fun Fact: My creator originally created the meme command to call Imgflip's API. The whole thing was done and was working! Then, he was sort of frustrated he was limited to the memes the API gives you. He's the kind of guy who really likes "freedom of customizability" (in case you haven't noticed with music, prefix, notifications and some other commands that let me be unique to your server!). So, he wanted the users to be able to upload their own memes! Maybe you have that friend that is a living meme? You can make him a meme with me! So he deleted the WHOLE file and started back from scratch to create this wonderful command!
+
+***Meme Limit***
+Since all of your blank memes are stored right into me and you're not the only server using me, there's a limited amount of memes you can create. This limit may be adjusted from time to time by my creator.
+Current limit: **${memeLimit}**
+
+***V2***
+This is actually the 2nd version of the meme command (1st one was during development). The reason I made a V2 was because I wasn't able to install a plugin used to make the memes to the server I'm hosted on. Honestly, it's the best thing that could've happened, because the V1 memes were very limited and didn't even use the meme font!
+Now, the command has been rewritten to be made from scratch with no plugins.
+Here's what you need to know about the formatting: you can have up to 3 end of lines (enters) per region (top/bottom). Those end of lines will not be done by themselves, so you have to do them if you don't want it to be too small.
+
+***Not an artist***
+I'm not an artist, I'm just really good at maths. The hardest part of making memes is calculating where to put the text (especially the bottom one). Although many sizes of images have been tested, some text may not be at the appropriate place. If that does happen, you can submit a report to my twitter account @Intellibot_Bot!
+
+***Resolution***
+Please note that the max resolution for a meme is 3840x2160, but it is recommended to have it under 1920x1080. Text tends to get smaller the bigger the image due to the calculations made.
+
+***Syntax***
+__*Create new meme*__
+```${prefix}meme new <memeName (spaces supported)> <image (.jpg, .png, .JPG, .PNG)>```
+__*Make meme (3 end of lines supported)*__
+```${prefix}meme <memeName> ; [top] ; [bottom]```
+__*View meme list*__
+```${prefix}meme list```
+__*Forget meme*__
+```${prefix}meme forget <memeName>```

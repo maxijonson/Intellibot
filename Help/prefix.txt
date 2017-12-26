@@ -1,0 +1,16 @@
+***Prefix***
+Each servers can have their own command prefix. This can be more than just one character, but I recommend you keep it short. You don't want everyone having to type 'Master ${author} prefix' for each command! Right?
+
+You can also get the current prefix by mentioning me!
+
+***Default***
+By default, the prefix is $, like calling a JQuery (or other languages) selector, ain't that cute!
+
+***Reset***
+You can reset the prefix either with the prefix %reset% command, or "<mention Intellibot> %reset%"
+
+***Syntax***
+__*Change prefix (Case Sensitive) [Admin]*__
+```${prefix}prefix <newPrefix> ```
+__*Reset prefix to default ($)*__
+```${prefix}prefix %reset%```

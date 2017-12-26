@@ -1,0 +1,12 @@
+***Remove Admin***
+It always happens, someone you thought you could trust running a bot, but just ends up making trouble. Use this command to send him back with the other non admins.
+
+*Note that the server owner is the only one who can't be removed from the bot admins*
+
+***Syntax***
+__*Show Admins*__
+```${prefix}rmadmin```
+__*Remove Admin [Owner]*__
+```${prefix}rmadmin <Admin>```
+__*Clear Admins [Owner]*__
+```${prefix}rmadmin all```

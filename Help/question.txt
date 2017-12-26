@@ -1,0 +1,24 @@
+***Question***
+Want to earn some robotpieces? Use this command and I'll ask you a question. If you answer correctly, I'll give you robotpieces!
+
+***Bonus***
+If you choose to get a question from a random category, you get 2 bonus pieces.
+
+***Notes***
+All questions answers are a single word and case insensitive since my code puts it to lower case before comparing anyways!
+You have 15 seconds to answer the question.
+While I'm still new to the bot world, the questions I have are entirely based on my creator's knowledge, but may evolve with time.
+Some questions have many answers, while some other only have one.
+
+***Blacklist***
+Subcommands of question (the categories) cannot be blacklisted since this command uses robotpieces, which are global and not only to this server. However, you can blacklist the entire command, just not its categories (subcommands).
+
+***Syntax***
+__*Get a question from a random category*__
+```${prefix}question```
+__*Get a category specific question*__
+```${prefix}question <category>```
+__*Get a question that isn't from TV or TV Quotes (Does not grant bonus)*__
+```${prefix}question spoilerfree```
+__*Show categories*__
+```${prefix}question categories```

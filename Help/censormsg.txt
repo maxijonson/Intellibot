@@ -1,0 +1,9 @@
+***Censor Message***
+With this command, you can choose whether or not I send a message when I censor a message.
+
+***Default***
+By default, this is set to false.
+
+***Syntax***
+__*Enable/Disable Censor Message*__
+```${prefix}censormsg```

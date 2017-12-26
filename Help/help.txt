@@ -1,0 +1,49 @@
+***Help***
+Everyone needs a little help once in a while! I have many commands, so I don't expect you to know what they do all by heart, especially when there's a lot of variations. This ain't your SATs!
+
+***Commands***
+- admins
+- addadmin
+- rmadmin
+- help
+- invite
+- notifications
+- ping
+- prefix
+- robotpiece
+- welcome
+- music
+- rps
+- rules
+- joke
+- funfact
+- meme
+- choose
+- google
+- blacklist
+- unblacklist
+- defaultrole
+- censor
+- censorMsg
+- uncensor
+- rpcard
+- question
+- encrypt
+- decrypt
+- purge
+- sudoku
+- info
+
+***Embed***
+To beautify things, all the help files are sent through an embed. The thing is, embeds only take 1024 characters (that includes markdown!). So I've created an algorithm that separates the embed into multiple embeds when it won't fit just in one. The result is multiple embeds sent in a matter of a second, which, when spammed, can be annoying. I recommend admins to blacklist this command and put all the help files into a separate channel. At the time of writing this, the website has no commands page. However, my owner does plan to make one which the address, if predicted accurately, should look like `http://www.maxijonson.com/intellibot/commands`.
+
+***Syntax Legend***
+[] = optional
+<> = obligation
+<[]> = obligation to choose an option
+
+***Syntax***
+__*Show command info*__
+```${prefix}help <Command> ```
+__*Show all commands (this message)*__
+```${prefix}help```

@@ -1,0 +1,6 @@
+***Ban***
+Sometimes, it's more than just the Szechuan sauce being discontinued at McDonald's. Maybe you found out this person has been taking some of your memories and storing them into vials in a hidden room... or not? Anyways, if you just don't want to see this person anymore, just ban the s@!* out of 'em
+
+***Syntax***
+__*Ban a member*__
+```${prefix}ban <mention> <reason>```

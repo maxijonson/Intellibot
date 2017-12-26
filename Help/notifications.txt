@@ -1,0 +1,11 @@
+***Notifications***
+Each servers has a notification channel where I will send general messages that aren't a response to a command (usually). See it like this: There are two types of command responses: **instant** and **triggers**. Instant commands are commands that you will call to get a straight up answer, such as ping, admins, robotpiece. Triggers, however, are commands you give me to do stuff later on, such as playing next songs or the welcome message. While I have the info on what channel the command was sent on when it is an instant command, I do not for triggers, so I send my message on the notification channel.
+
+***Default***
+By default, this channel is set to the first channel I encounter when I initialize your server into my data files.
+
+***Syntax***
+__*Show current notification channel*__
+```${prefix}notifications ```
+__*Change notification channel [Admin]*__
+```${prefix}notifications <Channel> ```

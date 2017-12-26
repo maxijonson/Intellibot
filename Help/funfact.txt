@@ -1,0 +1,6 @@
+***Fun Fact***
+After you use this command, you'll go to sleep feeling less dumb! Some of these are general fun facts, but a lot are about my development story! My owner made sure to add fun facts as he was making me to immortalize special events! Don't be surprised if you see facts that don't make sense anymore (such as for commands). The bot has evolved since ;)
+
+***Syntax***
+__*Get Fun Fact*__
+```${prefix}funfact```

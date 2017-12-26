@@ -1,0 +1,15 @@
+***Purge***
+*Blessed be our New Founding Fathers for letting us Purge and cleanse our souls. Blessed be America, a nation reborn.*
+Delete up to 100 messages with this command! (Discord API limits us bots to 100 per batch, otherwise we would have to loop through each of them, which takes processing power that I'd personally rather use in memes!)
+
+***Funfact***
+Other than the 100 messages batch limitation, the Discord API also won't let us delete messages older than 14 days (only in a delete batch). So my creator, in the event that messages are older than 14 days, loops through the messages to delete them individually. While testing this feature, he deleted 4 months of tests previously done because of an infinite loop problem!
+
+***Funfact***
+It's during this command's development that my creator found out that if you mentioned the ID of a channel in another server I'm in, it would do the said action. This also meant you could set your notification channel to another server's text channel, which almost sounded cool, but he patched it...
+
+***Syntax***
+__*Delete messages in current channel*__
+```${prefix}purge <amount>```
+__*Delete messages in specified channel*__
+```${prefix}purge <amount> <channel mention/ID>```
