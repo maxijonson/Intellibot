@@ -18,9 +18,9 @@ exports.run = (client, Functions, Requires, guild) => {
     var embed = new client.Discord.RichEmbed()
     .setTitle("Joined Guild")
     .setColor([23, 209, 72])
-    .setDescription(`Joined ${guild.name}`)
+    .setDescription(`${guild.name}`)
     .addField("Owner", `${guild.owner.user.username} (${guild.owner.user.id})`)
-    .addField("Members", `${guild.memberCount}`);
+    .addField("Members", `${guild.memberCount - 1}`);
     client.channels.get(client.constants.events).send({embed});
 
   } catch (err) {

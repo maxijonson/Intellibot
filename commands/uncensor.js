@@ -2,7 +2,7 @@ exports.run = (client, message, args, serverConf) => {
   if (!client.isAdmin(message.member, serverConf))
     return message.channel.send(`This is a bot admin only command!`);
   if (args.length != 1)
-    return message.channel.send(`Wrong syntax, use ${prefix}help uncensor to see how to use it!`);
+    return message.channel.send(`Wrong syntax, use ${serverConf.prefix}help uncensor to see how to use it!`);
 
   if (args[0] == 'all') {
     serverConf.censor = [];

@@ -25,7 +25,7 @@ try {
   var embed = new client.Discord.RichEmbed()
   .setTitle("Left Guild")
   .setColor([209, 23, 23])
-  .setDescription(`Left ${guild.name}`)
+  .setDescription(`${guild.name}`)
   .addField("Owner", `${guild.owner.user.username} (${guild.owner.user.id})`)
   .addField("Members", `${guild.memberCount}`);
   client.channels.get(client.constants.events).send({embed});

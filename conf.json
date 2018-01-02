@@ -1,7 +1,7 @@
 {
-	"botDebug": false,
-	"botGame": "www.maxijonson.com/intellibot",
-	"botStatus": "online",
+	"botDebug": true,
+	"botGame": "Maintenance",
+	"botStatus": "idle",
 	"botAfk": false,
 	"botAvatar": "./profile.png",
 	"botUsername": "Intellibot",

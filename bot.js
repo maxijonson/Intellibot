@@ -228,6 +228,11 @@ try {
   ///////////////////////////////////////////////////////// Init Bot /////////////////////////////////////////////////////////
   var client = new Discord.Client();
 
+  // Discord Bots List Server Count Posting
+  var dbl = require("dblposter");
+  var DBLPoster = new dbl(auth.discordBots);
+  DBLPoster.bind(client);
+
   // Cooldown
   client.cooldown = new Set();
 

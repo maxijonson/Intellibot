@@ -8,6 +8,7 @@
     "caption": "^0.1.1",
     "cheerio": "^1.0.0-rc.2",
     "colors": "^1.1.2",
+    "dblposter": "^1.0.2",
     "discord.io": "^2.5.3",
     "discord.js": "^11.2.1",
     "enmap": "^0.4.2",

@@ -50,15 +50,15 @@ exports.run = (client, message, args, serverConf) => {
               j.on('exit', (code) => {
                 if(code == 0)
                   m.delete();
-                client.fs.unlink(`./tmp/${message.author.id}avatar.png`, (err) => {
+                client.fs.unlink(`tmp/${message.author.id}avatar.png`, (err) => {
                   if (err) client.logger.error(err.stack + `\nMeme Child Process Exit Code: ${code}`);
                 });
 
-                client.fs.unlink(`./tmp/${message.author.id}.jpg`, function(err) {
+                client.fs.unlink(`tmp/${message.author.id}.jpg`, function(err) {
                   if (err) client.logger.error(err.stack + `\nRPCard Child Process Exit Code: ${code}`);
                 })
 
-                client.fs.unlink(`./tmp/${message.author.id}-rpcard.json`, (err) => {
+                client.fs.unlink(`tmp/${message.author.id}-rpcard.json`, (err) => {
                   if (err) client.logger.error(err.stack + `\nRPCard Child Process Exit Code: ${code}`);
                 });
               });

@@ -10,6 +10,22 @@ This repository is not the actual full repository. There are many ignored files 
 # Version
 The below versions are relative to the repo, not the project itself. At the moment of creation, Intellibot is V2.1. V2 is mainly a major change in data structure, but it is also the first build that saw the eye of the public.
 
+# Compatibility
+
+The core of Intellibot relies on an EnMap based data structure. Because the EnMap package is OS specific, the project will only run on UNIX based systems. However, to make it work on Windows, simply uninstalling the npm "EnMap" package and reinstalling it on Windows should do the trick.
+
+FFMPEG is required on your machine as well.
+
 # V1.0 - Initial Commit
 * Modified bot.js to hide constants
 * Overall preparation for eventual but not certain public release of this repo
+
+# V1.0.1 - Bug Fixes and Minor Changes
+
+* ***RPCARD*** Fixed a problem where some RPCard backgrounds could not be used. However, some cases still happen for unknown reasons (a .jpg image is considered a webp image or something like that) which causes the process to crash. Added a message prompting to change the background for these cases.
+* ***ADDADMIN*** Fixed the error message when user isn't the owner (was using the old data structure to fetch the prefix)
+* ***UNCENSOR*** Fixed the error message of wrong syntax (was using the old data structure to fetch the prefix)
+* Added *conf.json* to gitignore. You can get it in the first commit, but it is irrelevant to keep it in future commits, unless an option gets added/removed, since it's changed values are not so important.
+* ***bot.js*** Now posts server count to the Discord Bots List API
+* ***GUILDCREATE*** and ***GUILDDELETE*** Minor changes to the embed
+* ***package.json*** dblposter package added (Discord Bots List)

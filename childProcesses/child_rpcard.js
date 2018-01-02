@@ -7,12 +7,17 @@ try {
   var robotpieces = params.robotpieces;
   var usr = params.usr;
 
+  async function wait(cb) {
+    let temp = await new Promise(resolve => setTimeout(resolve, 600));
+    cb();
+  }
+
   var name = new jimp(840, 120);
   var discriminator = new jimp(420, 90);
   var robots = new jimp(200, 200);
   var pieces = new jimp(200, 200);
   var rank = new jimp(500, 500);
-  jimp.read(usr.background).then((bg) => {
+  jimp.read(`${usr.background}`).then((bg) => {
     jimp.read(`CardColors/${usr.color}.png`).then((bars) => {
       jimp.read("profileCard.png").then((card) => {
         jimp.read(`tmp/${message.author.id}avatar.png`).then((avatar) => {
@@ -84,54 +89,73 @@ try {
                   .composite(robots, 35, 375)
                   .composite(pieces, 540, 375)
                   .composite(rank, rankX, rankY)
-                  .write(`tmp/${message.author.id}.jpg`);
-
-                jimp.read(`tmp/${message.author.id}.jpg`).then((final) => {
-                  let file = new Discord.Attachment(`tmp/${message.author.id}.jpg`);
-                  if (file)
-                    process.send(file);
-                  else
-                    return process.send(`An error occured and I was unable to send you the file...`, () => process.exit(4));
-                }).catch((err) => {
-                  wait(function() {
+                  .write(`tmp/${message.author.id}.jpg`, function() {
                     jimp.read(`tmp/${message.author.id}.jpg`).then((final) => {
                       let file = new Discord.Attachment(`tmp/${message.author.id}.jpg`);
                       if (file)
                         process.send(file);
                       else
-                        return process.send(`An error occured and I was unable to send you the file...`, () => {
-                          process.exit(4);
-                        });
+                        return process.send(`An error occured and I was unable to send you the file...`, () => process.exit(4));
                     }).catch((err) => {
-                      return process.send(`Sorry, there was an error delivering the image on time, this is most likely just because it took too long to build the image. Launching the command again is most likely to work!`, () => process.exit(1));
+                      return process.send(`There was an unknown error making your RPCard...Consider using another background image.`, () => process.exit(1));
+                      // This was used before I found out I could use a callback on .write
+                      // wait(function() {
+                      //   jimp.read(`tmp/${message.author.id}.jpg`).then((final) => {
+                      //     let file = new Discord.Attachment(`tmp/${message.author.id}.jpg`);
+                      //     if (file)
+                      //       process.send(file);
+                      //     else
+                      //       return process.send(`An error occured and I was unable to send you the file...`, () => {
+                      //         process.exit(4);
+                      //       });
+                      //   }).catch((err) => {
+                      //     return process.send(`Sorry, there was an error delivering the image on time, this is most likely just because it took too long to build the image. Launching the command again is most likely to work!`, () => process.exit(1));
+                      //   });
+                      //
+                      // });
                     });
-
                   });
-                });
-
               }).catch((err) => {
-                return process.send(`There was an unknown error making your RPCard...`, () => process.exit(1));
+                return process.send(`There was an unknown error making your RPCard...Consider using another background image.`, () => process.exit(1));
               });
 
 
             }).catch((err) => {
-              return process.send(`There was an unknown error making your RPCard...`, () => process.exit(1));
+              return process.send(`There was an unknown error making your RPCard...Consider using another background image.`, () => process.exit(1));
             });
           }).catch((err) => {
-            return process.send(`There was an unknown error making your RPCard...`, () => process.exit(1));
+            return process.send(`There was an unknown error making your RPCard...Consider using another background image.`, () => process.exit(1));
           });
         }).catch((err) => {
-          return process.send(`There was an unknown error making your RPCard...`, () => process.exit(1));
+          return process.send(`There was an unknown error making your RPCard...Consider using another background image.`, () => process.exit(1));
         });
       }).catch((err) => {
-        return process.send(`There was an unknown error making your RPCard...`, () => process.exit(1));
+        return process.send(`There was an unknown error making your RPCard...Consider using another background image.`, () => process.exit(1));
       });
     }).catch((err) => {
-      return process.send(`There was an unknown error making your RPCard...`, () => process.exit(1));
+      return process.send(`There was an unknown error making your RPCard...Consider using another background image.`, () => process.exit(1));
     });
   }).catch((err) => {
-    return process.send(`There was an unknown error making your RPCard...`, () => process.exit(1));
+    return process.send(`There was an unknown error making your RPCard...Consider using another background image.`, () => process.exit(1));
   });
+
+
+  process.on('warning', (warning) => {
+    console.log(`${warning.name} - ${warning.message}`);
+  });
+
+  process.on('uncaughtException', (err) => {
+    console.log(err.stack);
+  });
+
+  process.on('unhandledRejection', (reason, p) => {
+    if (reason != "handled")
+      console.log(`Unhandled Rejection: ${JSON.stringify(p, null, '\t')}: ${reason.stack}`);
+  });
+
+
+
+
 } catch (err) {
-  process.send(`There was an unknown error making your RPCard...`, () => process.exit(1));
+  process.send(`There was an unknown error making your RPCard...Consider using another background image.`, () => process.exit(1));
 }

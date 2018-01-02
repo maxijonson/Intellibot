@@ -27,7 +27,7 @@ exports.run = (client, message, args, serverConf) => {
         }
       } else {
         message.channel.send(`Sorry, this command is available to bot (not server) admins only! Other bot admins can add a bot admin using the command\n
-      \`${conf.settings[server.id].prefix}addAdmin <mention or ID>\``);
+      \`${serverConf.prefix}addAdmin <mention or ID>\``);
       }
       break;
 
