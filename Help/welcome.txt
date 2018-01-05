@@ -6,9 +6,9 @@ By default, there is no welcome message
 
 ***Wildcards***
 Use these to mix things up:
-**%u** - Username of the member
-**%s** - Server name
-**%m** - Mention of the member (doesn't work in code blocks, will appear as a weird long ID. ewww.)
+%u - Username of the member
+%s - Server name
+%m - Mention of the member (doesn't work in code blocks, will appear as a weird long ID. ewww.)
 
 ***Syntax***
 __*Show current welcome message*__

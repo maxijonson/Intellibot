@@ -433,10 +433,12 @@ exports.run = (client, message, args, serverConf) => {
 
                   client.ytdl.getInfo(args[link])
                     .then((info) => {
-                      ProcessAdd(args[link]);
+                      ProcessAdd({
+                        link: args[link],
+                        title: info.title
+                      });
                     })
                     .catch((err) => {
-                      client.logger.error(err);
                       if (args[link] == "current" && serverConf.current != null)
                         ProcessAdd(serverConf.current);
                       else
