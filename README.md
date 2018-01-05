@@ -34,5 +34,5 @@ FFMPEG is required on your machine as well.
 
 # V1.0.2 - Music Playlist Fix and Help Welcome
 
-* Fixed an issue when playing a playlist that contained links added with a url (instead of "current") would not work
-* Fixed the welcome help file so it doesn't get considered as an "unknown command"
+* ***Music*** Fixed an issue when playing a playlist that contained links added with a url (instead of "current") would not work
+* ***Help*** Fixed the welcome help file so it doesn't get considered as an "unknown command"
