@@ -50,22 +50,6 @@
     if (!(message.channel.permissionsFor(client.user).has('SEND_MESSAGES')))
       return;
 
-    // Check if Intellibot is an admin on the server. If not, ignore the message and send 1 warning.
-    // try {
-    //   if (!(message.channel.permissionsFor(client.user).has('ADMINISTRATOR')) && message.author.id != client.user.id && !serverConf.adminWarned) {
-    //     serverConf.adminWarned = true;
-    //     client.settings.set(message.guild.id, serverConf);
-    //     return message.channel.send(`I've detected I am no longer have the administrator permission on this server. Because of that, some commands that require certain permissions could potentially crash me. To avoid this (and because the single coder wants to do something else with me other than checking for each permissions everytime), I'll be ignoring all your commands until you turn admin perms back on. This message will only appear once.`);
-    //   } else if (serverConf.adminWarned && message.channel.permissionsFor(client.user).has('ADMINISTRATOR')) {
-    //     serverConf.adminWarned = false;
-    //     message.channel.send(`Thanks for re-enabling my administrator permissions! Commands for your server are no longer blocked!`);
-    //     client.settings.set(message.guild.id, serverConf);
-    //   }
-    // } catch (err) {
-    //   client.logger.warn(`Something went wrong when checking if I'm an admin in ${message.guild.name} (${message.guild.id}). Attempting to reload guilds.`);
-    //   client.InitClient(client);
-    // }
-
     // Reset prefix to default if we "@Intellibot %reset%"
     if (message.content == `${client.user} %reset%`) {
       if (!client.isAdmin(message.member, serverConf))
@@ -81,7 +65,7 @@
 
     // The bot is listening to messages with the prefix. If it is not a command, it's a message, so we can stop here
     if (!message.content.startsWith(serverConf.prefix)) {
-      if (message.author.id != client.user.id) {
+      if (message.author.id != client.user.id && conf.messageListener) {
         client.logger.bot(`\n\t\tMESSAGE`);
         client.logger.sys(`User: ` + `${message.author.username.toString()} (${message.author.id})\n` +
           `Server: ` + `${message.guild.name} (${message.guild.id})\n\t` +
@@ -99,7 +83,7 @@
         `Server: ` + `${message.guild.name} (${message.guild.id})\n` +
         `Command: ` + `${command}\n` +
         `Args: ` + `${args.length == 0 ? "NONE" : args}`);
-    } else {
+    } else if(conf.messageListener){
       client.logger.bot(`\n\t\tMESSAGE`);
       client.logger.sys(`User: ` + `${message.author.username.toString()} (${message.author.id})\n` +
         `Server: ` + `${message.guild.name} (${message.guild.id})\n\t` +

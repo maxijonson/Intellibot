@@ -34,5 +34,11 @@ FFMPEG is required on your machine as well.
 
 # V1.0.2 - Music Playlist Fix and Help Welcome
 
-* Fixed an issue when playing a playlist that contained links added with a url (instead of "current") would not work
-* Fixed the welcome help file so it doesn't get considered as an "unknown command"
+* ***Music*** Fixed an issue when playing a playlist that contained links added with a url (instead of "current") would not work
+* ***Help*** Fixed the welcome help file so it doesn't get considered as an "unknown command"
+
+# V1.0.3 - Question Redesign and Google Fix
+
+* ***Question*** After a question ends, Intellibot no longer replies to the message. Instead, it edits the question message with a beautiful embed 
+* ***Google*** Fixed an issue where Intellibot would return 'No results found' by adding a User-Agent to the search query. 
+* [to be monitored] Intellibot would sometimes log messages that isn't a command, added some conditions to prevent this (mostly triggering in the Discord Bots List server where many other bots have commands with the same prefix)

@@ -89,12 +89,15 @@ exports.run = (client, message, args, serverConf) => {
     });
 
     collector.on("end", collected => {
-      m.delete();
       if (Restart)
-        return;
+        return m.delete();
 
       if (!Valid)
-        return message.reply(`Time expired!`);
+        return m.edit(`${message.author}`, {embed:
+          new client.Discord.RichEmbed()
+          .setColor([255, 0, 0])
+          .setDescription(`:alarm_clock: Time expired!`)
+        });
 
       var answers = questionObj.answer;
       var response = collected.first().content.toLowerCase();
@@ -111,9 +114,19 @@ exports.run = (client, message, args, serverConf) => {
         serverConf.rpGenerated += questionObj.pieces + modifier;
         client.settings.set(message.guild.id, serverConf);
         client.robotpieces.set(message.author.id, rp);
-        return message.reply(`Correct! You won ${questionObj.pieces} robotpieces${modifier == 0 ? "" : " +2 bonus for having a random category"}!`);
+
+        return m.edit(`${message.author}`, {embed:
+          new client.Discord.RichEmbed()
+          .setColor([0, 255, 0])
+          .setDescription(`:white_check_mark: Correct!`)
+          .addField('Robotpiece reward', `${questionObj.pieces} robotpieces${modifier == 0 ? "" : " (Random category bonus: +2 robotpieces)"}`)
+        });
       } else {
-        return message.reply(`Wrong answer!`);
+        return m.edit(`${message.author}`, {embed:
+          new client.Discord.RichEmbed()
+          .setColor([255, 0, 0])
+          .setDescription(`:x: Wrong answer!`)
+        });
       }
     });
   });
