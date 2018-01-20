@@ -42,3 +42,17 @@ FFMPEG is required on your machine as well.
 * ***Question*** After a question ends, Intellibot no longer replies to the message. Instead, it edits the question message with a beautiful embed 
 * ***Google*** Fixed an issue where Intellibot would return 'No results found' by adding a User-Agent to the search query. 
 * [to be monitored] Intellibot would sometimes log messages that isn't a command, added some conditions to prevent this (mostly triggering in the Discord Bots List server where many other bots have commands with the same prefix)
+
+# V1.0.4 - Beautify Music and Fixes
+
+* ***Music*** Beautified replies
+
+* ***Music*** Fixed playing saves not actually playing the save
+
+* ***bot.js*** Added the stack trace on Unhandled Rejection errors. Although this trace isn't very accurate, it is still better than just the error message.
+
+* ***bot.js*** Fixed a glitch where, when the bot would disconnect due to being alone in the channel, he would spam the remaining "Now Playing" messages.
+
+* ***message.js*** Fixed ReferenceError
+
+  ​

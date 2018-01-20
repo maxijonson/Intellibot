@@ -65,7 +65,7 @@
 
     // The bot is listening to messages with the prefix. If it is not a command, it's a message, so we can stop here
     if (!message.content.startsWith(serverConf.prefix)) {
-      if (message.author.id != client.user.id && conf.messageListener) {
+      if (message.author.id != client.user.id && client.conf.messageListener) {
         client.logger.bot(`\n\t\tMESSAGE`);
         client.logger.sys(`User: ` + `${message.author.username.toString()} (${message.author.id})\n` +
           `Server: ` + `${message.guild.name} (${message.guild.id})\n\t` +
@@ -83,7 +83,7 @@
         `Server: ` + `${message.guild.name} (${message.guild.id})\n` +
         `Command: ` + `${command}\n` +
         `Args: ` + `${args.length == 0 ? "NONE" : args}`);
-    } else if(conf.messageListener){
+    } else if(client.conf.messageListener){
       client.logger.bot(`\n\t\tMESSAGE`);
       client.logger.sys(`User: ` + `${message.author.username.toString()} (${message.author.id})\n` +
         `Server: ` + `${message.guild.name} (${message.guild.id})\n\t` +

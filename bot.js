@@ -439,10 +439,18 @@ try {
   // Voiceconnections round
   client.setInterval(function() {
     client.voiceConnections.forEach((vc) => {
-      if (vc.channel.members.array().length == 1)
+      if (vc.channel.members.array().length == 1){
+        var serverId = vc.channel.guild.id;
+        var serverConf = client.settings.get(serverId);
+
+        serverConf.voiceChannel = null;
+        serverConf.queue = [];
+        serverConf.current = null;
+        client.settings.set(serverId, serverConf);
         vc.disconnect();
+      }
     });
-  }, 300000);
+  }, 180000);
 
   // Initialize Command Handler
   // Ref: https://anidiotsguide.gitbooks.io/discord-js-bot-guide/coding-guides/a-basic-command-handler.html
@@ -467,7 +475,7 @@ try {
 
   process.on('unhandledRejection', (reason, p) => {
     if (reason != "handled")
-      logger.error(`Unhandled Rejection: ${JSON.stringify(p, null, '\t')}: ${reason}`);
+      logger.error(`Unhandled Rejection: ${JSON.stringify(p, null, '\t')}: ${reason.stack}`);
   });
 
   client.login(auth.token);
