@@ -13,10 +13,11 @@ exports.run = (client, message, args, serverConf) => {
       })
       .set({
         'User-Agent': 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) Gecko/20100101 Firefox/53.0' // This should trick Google into thinking we're human
+        // Mozilla/5.0 (Windows NT 6.3; Win64; x64) Gecko/20100101 Firefox/53.0
       })
       .then((r) => {
 
-        if(r.status != 200)
+        if (r.status != 200)
           return message.channel.send(`A server side error occured (not my fault!). Google could have detected I'm a bot...`);
 
         let $ = client.cheerio.load(r.text);
@@ -29,13 +30,17 @@ exports.run = (client, message, args, serverConf) => {
           "naked"
         ]
         if (res.length == 0)
-          return m.edit(`No results found!`);
+          return m.edit(`No results found or Google temporarily blocking traffic!`);
 
-        var embed = new client.Discord.RichEmbed().setColor('GOLD').setTitle(`Google Search`).setDescription(query).setURL(searchUrl);
+        var embed = new client.Discord.RichEmbed()
+          .setColor('GOLD')
+          .setTitle(`Google Search`)
+          .setDescription(query)
+          .setURL(searchUrl);
 
         for (var i = 0; i < res.length && i < 5; ++i) {
           let data = res.eq(i).find('a').first().attr('href');
-          data = client.querystring.parse(data.replace('/url?', ''));
+          data = client.querystring.parse(data.replace('/url?', '')).toString();
           let title = res.eq(i).find('a').first().text();
           let desc = $('.st').eq(i).text();
           if (!message.channel.nsfw)
@@ -52,7 +57,7 @@ exports.run = (client, message, args, serverConf) => {
         client.settings.set(message.guild.id, serverConf);
       }).catch((err) => {
         console.log(err);
-        m.edit(`No results found!`);
+        m.edit(`No results found or Google temporarily blocking traffic!`);
       })
   }).catch((err) => {
     client.logger.error(err.stack == undefined ? err : err.stack);

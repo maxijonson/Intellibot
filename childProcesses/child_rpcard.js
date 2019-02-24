@@ -3,6 +3,7 @@ try {
   var Discord = require('discord.js');
   var fs = require('fs');
   var params = require(`${process.argv[2]}`);
+  var sortRobotpieces = require('../Functions/sortRobotpieces');
   var message = params.message;
   var robotpieces = params.robotpieces;
   var usr = params.usr;
@@ -43,15 +44,13 @@ try {
                 pieces.resize(500, 500);
                 var rankNum = 0;
                 var tempArr = [];
-                for(var id in robotpieces) {
+                for (var id in robotpieces) {
                   tempArr.push({
                     id: id,
                     total: robotpieces[id].robots * 10 + robotpieces[id].pieces
                   })
                 }
-                tempArr.sort(function(a, b) {
-                  return a.total < b.total;
-                });
+                tempArr = sortRobotpieces(tempArr);
                 tempArr.forEach((collector, i) => {
                   if (collector.id == message.author.id)
                     rankNum = i + 1;

@@ -216,13 +216,15 @@ try {
   var download = require('./Functions/download.js');
   var isDev = require('./Functions/isDev.js');
   var isBanned = require('./Functions/isBanned.js');
+  var sortRobotpieces = require('./Functions/sortRobotpieces.js');
   var Functions = {
     isAdmin,
     InitClient,
     addGuild,
     download,
     isDev,
-    isBanned
+    isBanned,
+    sortRobotpieces
   }
 
   ///////////////////////////////////////////////////////// Init Bot /////////////////////////////////////////////////////////
@@ -389,18 +391,19 @@ try {
         total: collector.robots * 10 + collector.pieces
       })
     }
-    tempArr.sort(function(a, b) {
-      return a.total < b.total;
-    });
+    // tempArr.sort(function(a, b) {
+    //   return a.total < b.total;
+    // });
+    tempArr = client.sortRobotpieces(tempArr);
     for (var i = 0; i < tempArr.length && i < 10; ++i) {
       leaderboard += `${i % 2 == 0 ? "**" : ""}#${i + 1} ${client.users.get(tempArr[i].id) ? client.users.get(tempArr[i].id).username : tempArr[i].id} ${client.users.get(tempArr[i].id) ? "(" : ""}${client.users.get(tempArr[i].id) ? (client.users.get(tempArr[i].id).discriminator) : ""}${client.users.get(tempArr[i].id) ? ")" : ""} - R: ${client.robotpieces.get(tempArr[i].id).robots} P: ${client.robotpieces.get(tempArr[i].id).pieces}${i % 2 == 0 ? "**" : ""}\n`;
     }
 
     var embed = new client.Discord.RichEmbed()
-    .setColor([255, 255, 255])
-    .setTitle(`Robotpiece Season Results`)
-    .setDescription(`Robotpiece season ${client.conf.season} is now over and all robots and pieces were set back to 0! Congratulations to all of you!`)
-    .addField(`Top 10 Robotpiece Collectors (${client.robotpieces.size})`, leaderboard);
+      .setColor([255, 255, 255])
+      .setTitle(`Robotpiece Season Results`)
+      .setDescription(`Robotpiece season ${client.conf.season} is now over and all robots and pieces were set back to 0! Congratulations to all of you!`)
+      .addField(`Top 10 Robotpiece Collectors (${client.robotpieces.size})`, leaderboard);
 
     client.robotpieces.forEach((value, key, map) => {
       var rank = 0;
@@ -408,7 +411,7 @@ try {
       var copy = Object.assign({}, embed);
       var e = new client.Discord.RichEmbed(copy);
       tempArr.some((collector, i) => {
-        if(collector.id == key) {
+        if (collector.id == key) {
           rank = i + 1;
           return true;
         }
@@ -417,12 +420,12 @@ try {
       rp.robots = 0;
       rp.pieces = 0;
       client.robotpieces.set(key, rp);
-      if (client.users.has(key)){
+      if (client.users.has(key)) {
         e.fields = [];
         e.addField(`Top 10 Robotpiece Collectors (${client.robotpieces.size})`, leaderboard)
-        .addField(`Your Rank`, `#${rank} ${client.users.get(key).username} (${client.users.get(key).discriminator}) - R: ${keyRp.robots} P: ${keyRp.pieces}`);
+          .addField(`Your Rank`, `#${rank} ${client.users.get(key).username} (${client.users.get(key).discriminator}) - R: ${keyRp.robots} P: ${keyRp.pieces}`);
         console.log(`${key}\n${JSON.stringify(e, null, '\t')}`);
-        client.users.get(key).send({embed: e});
+        client.users.get(key).send({ embed: e });
       } else
         client.robotpieces.delete(key);
     });
@@ -434,12 +437,14 @@ try {
     })
   }
 
+  ////////////////////////////////////////// /METHODS //////////////////////////////////////////
+
   ///////////////////////////////////////////////////////// /Init Bot /////////////////////////////////////////////////////////
 
   // Voiceconnections round
   client.setInterval(function() {
     client.voiceConnections.forEach((vc) => {
-      if (vc.channel.members.array().length == 1){
+      if (vc.channel.members.array().length == 1) {
         var serverId = vc.channel.guild.id;
         var serverConf = client.settings.get(serverId);
 
@@ -455,8 +460,7 @@ try {
   // Initialize Command Handler
   // Ref: https://anidiotsguide.gitbooks.io/discord-js-bot-guide/coding-guides/a-basic-command-handler.html
   fs.readdir("./events/", (err, files) => {
-    if (err) return logger.error(err);
-
+    if (err) return client.logger.error(err);
     files.forEach(file => {
       let eventFunction = require(`./events/${file}`);
       let eventName = file.split(".")[0];

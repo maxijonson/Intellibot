@@ -39,7 +39,7 @@
     "winston": "^2.4.0",
     "winston-daily-rotate-file": "^1.7.2",
     "youtube-validator": "^1.1.2",
-    "ytdl-core": "^0.17.1"
+    "ytdl-core": "^0.20.1"
   },
   "devDependencies": {},
   "scripts": {

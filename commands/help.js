@@ -73,7 +73,15 @@ exports.run = (client, message, args, serverConf) => {
         getHelp(HelpFile);
       } catch (err) {
         console.log(err);
-        message.channel.send(`${args[0]} is not one of my commands...`);
+        message.channel.send({
+          embed: new client.Discord.RichEmbed()
+            .setColor([255, 0, 0])
+            .setDescription(`:x: ${args[0]} is not one of my commands...`)
+        }).then((m) => {
+          setTimeout(function() {
+            m.delete();
+          }, 3000);
+        });
       }
 
 

@@ -38,7 +38,6 @@ exports.run = (client, message, args, serverConf) => {
                   client.settings.set(message.guild.id, serverConf);
                 }
               });
-              client.logger.info(JSON.stringify(info, null, '\t'));
             if (serverConf.NotificationChannel != null)
               if (client.channels.get(serverConf.NotificationChannel).permissionsFor(client.user).has('SEND_MESSAGES')) {
                 try {
@@ -54,7 +53,7 @@ exports.run = (client, message, args, serverConf) => {
                       m.delete();
                     }, 360000);
                   });
-                } catch(err) {
+                } catch (err) {
                   message.guild.channels.get(serverConf.NotificationChannel).send({
                     embed: new client.Discord.RichEmbed()
                       .setColor([255, 255, 255])
@@ -83,7 +82,7 @@ exports.run = (client, message, args, serverConf) => {
             serverConf.current = serverConf.queue.shift();
             client.settings.set(message.guild.id, serverConf);
 
-
+            dispatcher.setVolume(serverConf.musicVolume / 100);
 
             dispatcher.on('debug', (info) => {
               client.logger.warn(info);
@@ -340,11 +339,25 @@ exports.run = (client, message, args, serverConf) => {
               client.sya.searchVideos(args.slice(1).join(' '))
                 .then((v) => {
                   if (!v[0])
-                    handleAsyncError(new Error(1));
+                    return message.channel.send(`No videos were found...`);
                   else
                     AddToQueue(v[0].shortURL, m);
                 })
-                .catch(client.logger.error);
+                .catch((err) => {
+                  if (err.error.error.errors[0].reason == "quotaExceeded" || err.error.error.errors[0].reason == "dailyLimitExceeded") {
+                    m.edit({
+                      embed: new client.Discord.RichEmbed()
+                        .setColor('ORANGE')
+                        .setDescription(`:warning: My daily API request quota has been exceeded.. Sorry.`)
+                    }).then((m) => {
+                      setTimeout(function() {
+                        m.delete();
+                      }, 20000);
+                    });
+                  } else {
+                    client.logger.error(err);
+                  }
+                });
             }
           });
       }
@@ -703,8 +716,8 @@ exports.run = (client, message, args, serverConf) => {
               if (args.length != 2)
                 return message.channel.send({
                   embed: new client.Discord.RichEmbed()
-                    .setColor([255, 0, 0])
-                    .setDescription(`:x: Missing arguments! Use ${serverConf.prefix}help music for info on how to use the command.`)
+                    .setColor([255, 255, 255])
+                    .setDescription(`:loud_sound: Volume: \`${serverConf.musicVolume}\``)
                 }).then((m) => {
                   setTimeout(() => {
                     m.delete();
@@ -723,18 +736,21 @@ exports.run = (client, message, args, serverConf) => {
                   }, 10000);
                 });
 
-              if (volume < 0 || volume > 2.5)
+              if (volume < 0 || volume > 250)
                 return message.channel.send({
                   embed: new client.Discord.RichEmbed()
                     .setColor([255, 0, 0])
-                    .setDescription(`:x: Volume must be between 0 and 2.5`)
+                    .setDescription(`:x: Volume must be between 0 and 250`)
                 }).then((m) => {
                   setTimeout(() => {
                     m.delete();
                   }, 10000);
                 });
 
-              message.guild.voiceConnection.dispatcher.setVolume(volume);
+              serverConf.musicVolume = parseInt(volume);
+              client.settings.set(message.guild.id, serverConf);
+
+              message.guild.voiceConnection.dispatcher.setVolume(volume / 100.0);
               message.channel.send({
                 embed: new client.Discord.RichEmbed()
                   .setColor([255, 255, 255])
@@ -1214,21 +1230,21 @@ exports.run = (client, message, args, serverConf) => {
 
         case "playlists":
 
-          if(args[1]) {
-            if(args[1] == 'all') {
+          if (args[1]) {
+            if (args[1] == 'all') {
               var playlists = `Saved Playlists\n`;
               var i = 1;
-              for(var p in serverConf.playlists) {
+              for (var p in serverConf.playlists) {
                 playlists += `${i}. ${p}\n`;
                 ++i;
               }
               client.fs.writeFile(`tmp/${message.author.id}-playlists.txt`, playlists, (err) => {
-                if(err) {
+                if (err) {
                   client.logger.error(err.stack);
                   message.channel.send({
                     embed: new client.Discord.RichEmbed()
-                    .setColor('ORANGE')
-                    .setDescription(`:warning: There was an error trying to fetch your playlists. This error has been logged and will be addressed`)
+                      .setColor('ORANGE')
+                      .setDescription(`:warning: There was an error trying to fetch your playlists. This error has been logged and will be addressed`)
                   }).then((m) => {
                     setTimeout(function() {
                       m.delete();
@@ -1238,7 +1254,7 @@ exports.run = (client, message, args, serverConf) => {
                 var file = new client.Discord.Attachment(`tmp/${message.author.id}-playlists.txt`, 'Playlists.txt');
                 return message.channel.send(file).then((m) => {
                   client.fs.unlink(`tmp/${message.author.id}-playlists.txt`, (err) => {
-                    if(err) client.logger.error(err.stack);
+                    if (err) client.logger.error(err.stack);
                   });
                 });
               });
@@ -1270,8 +1286,8 @@ exports.run = (client, message, args, serverConf) => {
           if (args.length < 2)
             return message.channel.send({
               embed: new client.Discord.RichEmbed()
-              .setColor([255, 0, 0])
-              .setDescription(`:x: Wrong syntax. Use ${serverConf.prefix}help music to get info on the command.`)
+                .setColor([255, 0, 0])
+                .setDescription(`:x: Wrong syntax. Use ${serverConf.prefix}help music to get info on the command.`)
             }).then((m) => {
               setTimeout(function() {
                 m.delete();
@@ -1287,8 +1303,8 @@ exports.run = (client, message, args, serverConf) => {
             else
               return message.channel.send({
                 embed: new client.Discord.RichEmbed()
-                .setColor([255, 0, 0])
-                .setDescription(`:x: Max seach limit is 20. (Min 1)`)
+                  .setColor([255, 0, 0])
+                  .setDescription(`:x: Max seach limit is 20. (Min 1)`)
               }).then((m) => {
                 setTimeout(function() {
                   m.delete();
@@ -1316,8 +1332,8 @@ exports.run = (client, message, args, serverConf) => {
           if (args.length != 1)
             return message.channel.send({
               embed: new client.Discord.RichEmbed()
-              .setColor([255, 0, 0])
-              .setDescription(`:x: Wrong syntax. Use ${serverConf.prefix}help music to get info on the command.`)
+                .setColor([255, 0, 0])
+                .setDescription(`:x: Wrong syntax. Use ${serverConf.prefix}help music to get info on the command.`)
             }).then((m) => {
               setTimeout(function() {
                 m.delete();
@@ -1326,8 +1342,8 @@ exports.run = (client, message, args, serverConf) => {
           if (!message.guild.voiceConnection)
             return message.channel.send({
               embed: new client.Discord.RichEmbed()
-              .setColor('ORANGE')
-              .setDescription(`:warning: There's no link playing right now!`)
+                .setColor('ORANGE')
+                .setDescription(`:warning: There's no link playing right now!`)
             }).then((m) => {
               setTimeout(function() {
                 m.delete();
@@ -1336,8 +1352,8 @@ exports.run = (client, message, args, serverConf) => {
           if (!serverConf.current)
             return message.channel.send({
               embed: new client.Discord.RichEmbed()
-              .setColor('ORANGE')
-              .setDescription(`:warning: Well that's odd, I do not know what is the current link playing... Sorry for that!`)
+                .setColor('ORANGE')
+                .setDescription(`:warning: Well that's odd, I do not know what is the current link playing... Sorry for that!`)
             }).then((m) => {
               setTimeout(function() {
                 m.delete();
@@ -1348,9 +1364,9 @@ exports.run = (client, message, args, serverConf) => {
           client.settings.set(message.guild.id, serverConf);
           message.channel.send({
             embed: new client.Discord.RichEmbed()
-            .setColor([255, 255, 255])
-            .setDescription(`:repeat: Link has been added to the queue!`)
-          }).then((m)=> {
+              .setColor([255, 255, 255])
+              .setDescription(`:repeat: Link has been added to the queue!`)
+          }).then((m) => {
             setTimeout(function() {
               m.delete();
             }, 2500);
@@ -1360,8 +1376,8 @@ exports.run = (client, message, args, serverConf) => {
         default:
           message.channel.send({
             embed: new client.Discord.RichEmbed()
-            .setColor([255, 0, 0])
-            .setDescription(`:x: ${args[0]} is not one of the music sub-commands...`)
+              .setColor([255, 0, 0])
+              .setDescription(`:x: ${args[0]} is not one of the music sub-commands...`)
           }).then((m) => {
             setTimeout(function() {
               m.delete();
@@ -1374,8 +1390,8 @@ exports.run = (client, message, args, serverConf) => {
     default:
       message.channel.send({
         embed: new client.Discord.RichEmbed()
-        .setColor([255, 0, 0])
-        .setDescription(`:x: Wrong syntax for music command. Use ${Settings.prefix}help music for info on how to use the command.`)
+          .setColor([255, 0, 0])
+          .setDescription(`:x: Wrong syntax for music command. Use ${Settings.prefix}help music for info on how to use the command.`)
       }).then((m) => {
         setTimeout(function() {
           m.delete();

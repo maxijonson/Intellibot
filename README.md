@@ -45,14 +45,41 @@ FFMPEG is required on your machine as well.
 
 # V1.0.4 - Beautify Music and Fixes
 
+V1.0.4 Is the start of the Beautify project. In the next few updates, it is planned to make all (or almost all)  bot replies in embeds and, if it seems relevant, clean up after himself after a certain amount of times, hence limiting the useless replies to build up in a channel. 
+
+IDEA FOR THE FUTURE: add a server setting that would let admins choose wether or not the bot should also delete the message launched by the user (when it is a command). This would prevent a build up of commands, making the bot's presence seemless.
+
 * ***Music*** Beautified replies
-
 * ***Music*** Fixed playing saves not actually playing the save
-
 * ***bot.js*** Added the stack trace on Unhandled Rejection errors. Although this trace isn't very accurate, it is still better than just the error message.
-
 * ***bot.js*** Fixed a glitch where, when the bot would disconnect due to being alone in the channel, he would spam the remaining "Now Playing" messages.
-
 * ***message.js*** Fixed ReferenceError
 
-  ​
+# V1.0.5 - Beautify
+
+* ***Addadmin*** No longer outputs bot admins when no arg is given. Instead replies with an error, prompting the user to specify a user or role
+* ***Music*** No longer logs info object. (forgot to take it out after tests)
+* ***Music*** Now sends a message when no video is found and now sends a message when the API request limit is blown
+* ***Music*** Volume now takes absolute values between 0 and 250 and that number gets remembered for the next play.
+* ***Robotpiece*** and ***RPCard*** Fixed rankings not correct by adding a new function: sortRobotpieces(*array*)
+* ***Addadmin*** Beautified
+* ***Admins*** Beautified
+* ***Censormsg*** Beautified
+* ***Choose*** Beautified
+* ***Decrypt*** Beautified
+* ***Encrypt*** Beautified
+* ***Funfact*** Beautified
+* ***Help*** Beautified
+* ***Invite*** Beautified
+* ***Joke*** Beautified
+* ***Kick*** Beautified
+* ***DefaultRole*** Beautified
+* ***Blacklist*** Beautified
+* ***Censor*** Beautified
+* ***Welcome*** Beautified
+
+#### Final Commit
+
+*this commit is being published years after the actual modifications, I had just forgotten about doing so over the years*
+
+This commit is also the last one that will ever be made. With school getting rougher, I lost track of Intellibot, unfortunately. As this is being written, the last true changes were years ago and Intellibot still runs, though it may not in the future (either because some API endpoints may become deprecated or I will eventually shut down it's cloud server). Sometimes I get an error report from the bot, but it is usually connectivity issues. This project was made to give me experience with server-side JavaScript and it was definitely a success. The reason I will not be reworking it is because since these last changes, I grew a lot and my coding conventions have changed. Although JavaScript is still my favorite language, I now find Intellibot runs on "rookie" code and the project is too big to be revamped. I do not close the possibility of an Intellibot 2, which would probably run on Typescript  and be way more ready to adapt to changes. I decided to make this repo public as I initially wanted to do it when it comes out of Beta, but now I realize this won't happen. Thank you for everyone who has used Intellibot, I had great comments on it!

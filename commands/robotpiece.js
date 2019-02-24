@@ -19,9 +19,10 @@ exports.run = (client, message, args, serverConf) => {
           total: collector.robots * 10 + collector.pieces
         })
       }
-      tempArr.sort(function(a, b) {
-        return a.total < b.total;
-      });
+      // tempArr.sort(function(a, b) {
+      //   return a.total < b.total;
+      // });
+      tempArr = client.sortRobotpieces(tempArr);
       for (var i = 0; i < tempArr.length; ++i) {
         if (i + 1 <= 10)
           leaderboard += `#${i + 1} ${client.users.get(tempArr[i].id) ? client.users.get(tempArr[i].id).username : tempArr[i].id} ${client.users.get(tempArr[i].id) ? "(" : ""}${client.users.get(tempArr[i].id) ? (client.users.get(tempArr[i].id).discriminator) : ""}${client.users.get(tempArr[i].id) ? ")" : ""} - R: ${client.robotpieces.get(tempArr[i].id).robots} P: ${client.robotpieces.get(tempArr[i].id).pieces}\n`;

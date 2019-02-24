@@ -37,7 +37,7 @@ __*Show Saves*__
 __*Unsave Link*__
 ```${prefix}music unsave <save name>```
 __*Adjust Volume*__
-```${prefix}music volume [amount (between 0 and 2.5)]```
+```${prefix}music volume [amount (between 0 and 250)]```
 __*Create Playlist*__
 ```${prefix}music playlist <name> create```
 __*Delete Playlist*__

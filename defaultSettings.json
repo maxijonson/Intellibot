@@ -24,5 +24,6 @@
 	"lucipherCount": 0,
 	"googleCount": 0,
 	"sudokuCount": 0,
-	"playCount": 0
+	"playCount": 0,
+	"musicVolume": 100
 }
